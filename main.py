@@ -1,36 +1,20 @@
-class Calculator:
-    def __init__(self):
-        self.memory = 0
+from calculator.calculator import Calculator
 
-    def add(self, x, y):
-        result = x + y
-        self.memory = result
-        return result
+if __name__ == "__main__":
+    #exemplos de uso
+    calculator = Calculator()
+    result_addition = calculator.add(5, 3)
+    result_subtraction = calculator.subtract(10, 4)
+    result_multiplication = calculator.multiply(2, 6)
+    result_division = calculator.divide(8, 2)
+    result_power = calculator.power(2, 3)
 
-    def subtract(self, x, y):
-        result = x - y
-        self.memory = result
-        return result
+    print("Addition:", result_addition)
+    print("Subtraction:", result_subtraction)
+    print("Multiplication:", result_multiplication)
+    print("Division:", result_division)
+    print("Power:", result_power)
 
-    def multiply(self, x, y):
-        result = x * y
-        self.memory = result
-        return result
-
-    def divide(self, x, y):
-        if y == 0:
-            raise ValueError("Can't divide by zero")
-        result = x / y
-        self.memory = result
-        return result
-
-    def power(self, x, y):
-        result = x ** y
-        self.memory = result
-        return result
-
-    def get_memory(self):
-        return self.memory
-    
-    def reset_memory(self):
-        self.memory = 0
+    memory_value = calculator.get_memory()
+    result_using_memory = calculator.add(memory_value, 5)
+    print("Result using memory:", result_using_memory)
